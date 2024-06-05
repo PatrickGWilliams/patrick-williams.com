@@ -1,0 +1,11 @@
+#docker
+docker/var/**
+docker/shared_directory/**
+
+#ansible
+ansible/roles/common/files/**
+ansible/roles/patsite/vars/**
+ansible/roles/patsite/files/shared_files/**
+
+
+

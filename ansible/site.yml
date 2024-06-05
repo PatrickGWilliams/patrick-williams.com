@@ -1,0 +1,3 @@
+---
+- name: Configure website
+  ansible.builtin.import_playbook: website.yml

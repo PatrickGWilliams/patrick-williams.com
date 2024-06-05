@@ -1,0 +1,54 @@
+- name: Make ssl cert directory
+  become: true
+  ansible.builtin.file:
+    path: /etc/nginx/ssl
+    state: directory
+    mode: '0755'
+
+- name: Make Let's Encrypt directory
+  become: true
+  ansible.builtin.file:
+    path: /var/www/html/letsencrypt
+    state: directory
+    mode: '0755'
+
+- name: Make pre-ssl nginx conf using jinja 2
+  ansible.builtin.template:
+    src: templates/pre_ssl_nginx_conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Restart nginx with pre-ssl config
+  ansible.builtin.systemd:
+    name: "nginx"
+    state: restarted
+
+- name: Download and install acme.sh
+  ansible.builtin.shell:
+    cmd: curl https://get.acme.sh | sh -s email=patgwillia@gmail.com
+    chdir: /root/
+
+- name : Issue a cert
+  ansible.builtin.shell:
+    cmd: /root/.acme.sh/acme.sh --issue -d {{ inventory_hostname }} -w /var/www/html/letsencrypt --server letsencrypt --force
+    chdir: /root/
+
+- name : Install cert to Nginx
+  ansible.builtin.shell:
+    cmd: /root/.acme.sh/acme.sh --install-cert -d {{ inventory_hostname }} --key-file /etc/nginx/ssl/key.pem --fullchain-file /etc/nginx/ssl/cert.pem --reloadcmd "service nginx force-reload"
+
+
+- name: Make nginx conf using jinja 2
+  ansible.builtin.template:
+    src: templates/nginx_conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Restart nginx with final config
+  ansible.builtin.systemd:
+    name: "nginx"
+    state: restarted

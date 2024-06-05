@@ -1,0 +1,29 @@
+worker_processes  auto;
+
+error_log  /etc/nginx/logs/error.log;
+error_log  /etc/nginx/logs/error.log  notice;
+error_log  /etc/nginx/logs/error.log  info;
+
+events {
+  worker_connections  1024;
+}
+
+
+http {
+  include       mime.types;
+
+  server {
+    listen 80;
+    server_name {{ inventory_hostname }} ;
+
+    location / {
+      return 301 https://$host$request_uri;
+    }
+    location ~ /.well-known {
+      root /var/www/html/letsencrypt;
+    }
+
+  }
+
+}
+

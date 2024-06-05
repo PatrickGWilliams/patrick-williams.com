@@ -1,0 +1,35 @@
+---
+
+- name: Ensure python3 and pip are installed
+  become: true
+  ansible.builtin.apt:
+    name:
+      - python3
+      - python3-pip
+    state: present
+
+- name: Install Selenium
+  become: true
+  ansible.builtin.pip:
+    name:
+      - selenium
+      - beautifulsoup4
+    state: present
+
+- name: Ensure NYTTest runs everyday at 3:05
+  ansible.builtin.cron:
+    name: "Test New York Times Words"
+    minute: "05"
+    hour: "3"
+    job: "/bin/python3 /home/ansible/app_files/wordChecker/NYTTester.py"
+    user: ansible
+    state: present
+
+- name: Copy the contents of the wordChecker directory
+  ansible.builtin.copy:
+    src: files/wordChecker
+    dest: /home/ansible/app_files/
+    owner: ansible
+    group: ansible
+    #    force: false
+    mode: '0744'

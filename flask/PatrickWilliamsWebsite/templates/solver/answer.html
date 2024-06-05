@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Answers</title>{% endblock %}
+
+{% block content %} 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body class="w3-content" style="max-width:1300px">
+  <div class="w3-row">
+    <div class="w3-half w3-black w3-container w3-center" style="height:{{ length }}px">
+      <div>
+        <h1>{{answerTitle}}</h1>
+      </div>
+      {% if fromDB %}
+        <div class="w3-card w3-dark-grey">
+          <h3>Accepted Words</h3>
+           <p>Words accepted by the <a href="https://www.nytimes.com/puzzles/spelling-bee">New York Times Spelling Bee</a> puzzle</p> 
+           <p>&nbsp;</p>
+        </div>
+      {% else %}
+
+        <div class="w3-card w3-dark-grey">
+          <h3>Explanation</h3>
+           <p>All of the words containing three or more letters that can be made with the provided letters</p> 
+           <p>&nbsp;</p>
+        </div>
+
+      {% endif %}
+      <div class="w3-card w3-dark-grey">
+        <ul>
+          {% for word in answer %}
+            <li>{{ word }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% if fromDB %}
+        <div class="w3-card w3-dark-grey">
+          <h3>Rejected Words</h3>
+           <p>Words the New York Times Spelling Bee puzzle rejected because they are offensive or obscure</p> 
+           <p>&nbsp;</p>
+        </div>
+        <div class="w3-card w3-dark-grey">
+          {% for string in rejected %}
+            <li>{{ string }}</li>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="w3-half w3-yellow w3-container w3-center" style="height:{{ length }}px">
+       <div>
+        <h1>{{pangramTitle}}</h1>
+       </div>
+      <div class="w3-card w3-dark-grey">
+        <p>&nbsp;</p>
+        <p>Pangrams are words that contain all of the provided letters</p> 
+        <p>&nbsp;</p>
+      </div>
+    
+      <div class="w3-card w3-dark-grey">
+    
+        <ul>
+          {% for pangram in pangrams %}
+            <li>{{ pangram }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  </body>
+
+{% endblock %}

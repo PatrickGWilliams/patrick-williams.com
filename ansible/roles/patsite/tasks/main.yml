@@ -1,0 +1,31 @@
+---
+
+- name: Remove ubuntu user
+  ansible.builtin.user:
+    name: ubuntu
+    remove: true
+
+- name: Copy the contents of the shared_files directory
+  ansible.builtin.copy:
+    src: files/shared_files
+    dest: /home/ansible/app_files/
+    owner: ansible
+    group: ansible
+    force: false
+    mode: "0744"
+
+- name: Gather info on running container
+  docker_container_info:
+    name: "flask_app"
+  register: container_info
+
+- name: Conditionally Run the container_setup playbook
+  ansible.builtin.import_tasks: container_setup.yml
+  when:  container_info.container.Config.Image  !=  patsite_image_name
+
+- name: Make sure nginx is running
+  become: true
+  ansible.builtin.systemd:
+    name: "nginx"
+    state: restarted
+    enabled: true

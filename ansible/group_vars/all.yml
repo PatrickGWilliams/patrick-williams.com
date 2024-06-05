@@ -1,0 +1,7 @@
+ssh_admins:
+  - { name: ansible, groups: "sudo,admin", state: "present"}
+  - { name: pat, groups: "sudo,admin", state: "present"}
+
+ssh_admin_keys:
+  - { name: ansible, key: ansible.pub, state: "present" }
+  - { name: pat, key: patwill.pub, state: "present" }
