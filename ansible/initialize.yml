@@ -1,0 +1,15 @@
+---
+- name: initialize servers
+  hosts: initialize
+  remote_user: ubuntu
+  become: true
+  roles:
+    - common
+
+#- name: Remove ubuntu user
+#  hosts: initialize
+#  tasks:
+#    - ansible.builtin.user:
+#        name: ubuntu
+#        remove: true
+#      when: ansible_facts['os_family']|lower == 'debian'

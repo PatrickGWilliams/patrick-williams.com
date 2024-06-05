@@ -1,0 +1,30 @@
+---
+# system user
+- name: Set a hostname
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"
+
+# system users
+
+- name: Add ssh admins
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    groups: "{{ item.groups }}"
+    shell: /bin/bash
+  with_items: "{{ ssh_admins }}"
+
+- name: Add ssh admin keys
+  ansible.posix.authorized_key:
+    user: "{{ item.name }}"
+    key: "{{ lookup('file', item.key) }}"
+    state: "{{ item.state }}"
+  with_items: "{{ ssh_admin_keys }}"
+
+# sudoers configuration
+
+- name: Remove the admin line from sudoers
+  lineinfile: dest=/etc/sudoers state=absent regexp='^%admin\s+ALL\=\(ALL\)\s+ALL'
+
+- name: Disable password
+  lineinfile: dest=/etc/sudoers state=present insertafter='^%sudo\s+ALL\=' line='%admin ALL=(ALL) NOPASSWD:ALL' validate='visudo -cf %s'

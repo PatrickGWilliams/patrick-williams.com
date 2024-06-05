@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Spelling Bee Solver</title>
+{% endblock %}
+
+{% block content %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body class="w3-content" style="max-width:1300px">
+  <div class="w3-row">
+    <div class="w3-half w3-yellow w3-container w3-center" style="height:1000px">
+      <div class="w3-padding-64 w3-padding-large">
+        <h1>Spelling Bee Solver</h1>
+        <div class="w3-card w3-dark-grey">
+        <h3>Directions</h3>
+          <ul>
+            <li>Today's Letters for the <a href="https://www.nytimes.com/puzzles/spelling-bee"> New York Times Spelling Bee</a> puzzle are already filled in for you. Just hit submit!</li>
+          </ul>
+          <p>If you want to enter your own letters do the following:</p>
+          <ul>
+            <li> Begin by entering the required letter into the field labeled Required Letter. This is the central letter around which the words will be generated.</li>
+          </ul>
+          <ul>
+            <li>In the following sections, input the six additional letters of your choice. These letters will be used to create valid words.</li>
+          </ul>
+          <ul>
+            <li>Once you've entered a unique letter in each field click Submit and view your results.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="w3-half w3-black w3-container" style="height:1000px">
+        <div class="w3-padding-64 w3-padding-large">
+          <div class="w3-center">
+            <h1>Letters</h1>
+          </div>
+    <form class="w3-container w3-card w3-padding-32 w3-dark-grey" method="post">
+      <div class="w3-half">
+            <label for="required">Required Letter</label><input class="w3-input" style="width:30%;" type="text" name="required" id="required" value={{ fillLetters[0] }}  required>
+      </div>
+      <div class="w3-half">
+        <label for="First Letter">1st Letter</label><input class="w3-input" style="width:30%;" type="text" name="firstl" id="firstl" value= {{ fillLetters[1] }} required>
+      </div>
+      <div class="w3-half">
+        <label for="Second Letter">2nd Letter</label>
+        <input class="w3-input" style="width:30%;" type="text" name="secondl" id="secondl" value= {{ fillLetters[2] }} required>
+      </div>
+      <div class="w3-half">
+        <label for="Third Letter">3rd Letter</label>
+        <input class="w3-input" style="width:30%;" type="text" name="thirdl" id="thirdl" value= {{ fillLetters[3] }} required>
+      </div>
+      <div class="w3-half">
+        <label for="Fourth Letter">4th Letter</label>
+        <input class="w3-input" style="width:30%;" type="text" name="fourthl" id="fourthl" value= {{ fillLetters[4] }} required>
+      </div>
+      <div class="w3-half">
+        <label for="Fifth Letter">5th Letter</label>
+        <input class="w3-input" style="width:30%;" type="text" name="fifthl" id="fifthl" value= {{ fillLetters[5] }} required>
+      </div>
+      <div class="w3-half">
+        <label for="Sixth Letter">6th Letter</label>
+            <input class="w3-input" style="width:30%;" type="text" name="sixthl" id="sixthl" value= {{ fillLetters[6] }}  required>
+      </div>
+        <button type="submit" class="w3-button w3-teal w3-center">Submit</button>
+
+        
+  
+        </form>
+
+      </div>
+      </div>
+    </div
+  </div>
+  </body>
+{% endblock %}

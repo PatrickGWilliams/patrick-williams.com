@@ -1,0 +1,23 @@
+- name: Install web server
+  ansible.builtin.apt:
+    name: "nginx"
+    state: present
+
+- name: Create a log directory for nginx
+  ansible.builtin.file:
+    path: /etc/nginx/logs/
+    state: directory
+    mode: '0755'
+
+- name: Make a log file for nginx
+  ansible.builtin.file:
+    path: /etc/nginx/logs/error.log
+    state: touch
+    mode: '0644'
+
+- name: Make sure a service unit is running
+  ansible.builtin.systemd:
+    name: "nginx"
+    state: started
+    enabled: true
+

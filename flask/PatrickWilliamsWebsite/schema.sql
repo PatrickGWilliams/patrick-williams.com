@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS bees;
+
+CREATE TABLE bees (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_DATE,
+    letters TEXT UNIQUE NOT NULL,
+    accepted TEXT NOT NULL,
+    pangrams TEXT,
+    rejected TEXT
+);

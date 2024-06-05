@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Patrick Williams</title>
+{% endblock %}
+
+{% block content %}
+  <html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+  <body class="w3-content" style="max-width:1300px">
+  
+  <div class="w3-row">
+    <div class="w3-half w3-black w3-container w3-center" style="height:700px">
+      <div class="w3-padding-64">
+        <h1>Patrick Williams</h1>
+      </div>
+      <div class="w3-padding-64">
+        <a href="#certifications" class="w3-button w3-black w3-block w3-hover-dark-grey w3-padding-16">Certifications</a>
+        <a href="#skills" class="w3-button w3-black w3-block w3-hover-dark-grey w3-padding-16">Skills</a>
+        <a href="#projects" class="w3-button w3-black w3-block w3-hover-dark-grey w3-padding-16">Projects</a>
+        <a href="#contact" class="w3-button w3-black w3-block w3-hover-dark-grey w3-padding-16">Contact Me</a>
+      </div>
+    </div>
+    <div class="w3-half w3-blue-grey w3-container w3-padding-10" style="height:700px">
+      <div class="w3-center">
+        <h1>About Me</h1>
+<img src={{ url_for('static', filename='profile.JPEG') }} class="w3-margin w3-circle" alt="Person" style="width:50%">
+        <div class="w3-left-align">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello! I'm Patrick Williams, a Linux enthusiast on a journey to dive into the exciting world of technology. My interests lie at the intersection of cloud engineering and IT innovation. I proudly hold the Red Hat Certified System Administrator (RHCSA) certification, a testament to my commitment to mastering the fundamentals of Linux system administration. I am eager to contribute my skills and stay at the forefront of evolving technologies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w3-row">
+    <div class="w3-half w3-pale-red w3-center" style="min-height:730px" id="certifications">
+      <div class="w3-padding-64">
+        <h1>Certifications</h1>
+      </div>
+          
+        <div class="w3-half w3-center" >
+          <div data-iframe-width="150" data-iframe-height="240" data-share-badge-id="1f7e1fad-e7ed-4ecf-aa2e-b745fbd448a9" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+        </div>
+
+          <div data-iframe-width="150" data-iframe-height="240" data-share-badge-id="9c8bcd12-37bf-4703-8e84-5afb26cadc92" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>    </div>
+        
+      <div class="w3-half w3-indigo w3-container" style="min-height:730px" id="skills">
+      <div class="w3-padding-16 w3-center">
+        <h1>Skills</h1>
+        <div class="w3-padding-32">
+          <h3>Technologies</h3>
+          <ul><h4>
+            <li>Docker</li> 
+            <li>Ansible</li> 
+            <li>Terraform</li> 
+            <li>Apache</li> 
+            <li>Nginx</li>
+            <li>Flask</li> 
+            <li>Git</li> 
+            <li>AWS</li> 
+            <li>Red Hat Enterprise Linux</li> 
+            <li>Ubuntu Linux</li> 
+            <li>Selenium</li> 
+            </h4>
+          </ul>
+        </div>
+        <div class="w3-padding-16">
+          <h3>Languages</h3>
+          <ul>
+            <h4>
+            <li>Python</li> 
+            <li>Shell</li> 
+            <li>JavaScript</li> 
+            </h4>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w3-row" id="projects">
+  
+    <div class="w3-half w3-purple w3-container w3-center" style="height:700px">
+      <div class="w3-padding-64">
+        <h1>Projects</h1>
+      </div>
+      <div class="w3-padding-4">
+        <a href="{{ url_for('solver.spellingbee') }}" class="w3-button w3-purple w3-block w3-hover-teal "><h3>Spelling Bee Solver</h3></a>
+        <ul>
+          <li>A python script I wrote to solve the <a href="https://www.nytimes.com/puzzles/spelling-bee"> New York Times Spelling Bee</a> puzzle.</li>
+
+        </ul>
+      </div>
+      <div class="w3-padding-4">
+      
+          
+          
+          <a href="https://github.com/PatrickGWilliams" class="w3-button w3-purple w3-block w3-hover-teal w3-padding-16"><h3>Git Hub</h3></a>
+      </div>
+      <ul>
+        <li>My git hub containing the Ansible, Terraform, Docker, and Python I wrote for this website.</li>
+      </ul>
+  
+      <br>
+    </div>
+    <div class="w3-half w3-teal w3-container" style="height:700px" id="contact">
+      <div class="w3-padding-64 w3-padding-large">
+        <h1>Contact</h1>
+        <p class="w3-opacity">You can reach me at patgwillia@gmail.com, <a href="https://www.linkedin.com/in/patrick-williams-3650a6310">LinkedIn</a>, or by filling out the form below</p>
+        <form class="w3-container w3-card w3-padding-32 w3-dark-grey" method="post">
+          <div class="w3-section">
+            <label>Name</label>
+            <input class="w3-input" style="width:100%;" type="text" required name="Name">
+          </div>
+          <div class="w3-section">
+            <label>Email</label>
+            <input class="w3-input" style="width:100%;" type="text" required name="Email">
+          </div>
+          <div class="w3-section">
+            <label>Message</label>
+            <input class="w3-input" style="width:100%;" type="text" required name="Message">
+          </div>
+          <button type="submit" class="w3-button w3-teal w3-right">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  </body>
+
+  <html>
+{% endblock %}

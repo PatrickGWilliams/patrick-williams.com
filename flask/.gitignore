@@ -1,0 +1,17 @@
+.venv/
+
+*.pyc
+__pycache__/
+
+**/instance/**
+
+.pytest_cache/
+.coverage
+htmlcov/
+static/dict.txt
+static/profile.JPEG
+
+dist/
+build/
+*.egg-info/
+*.bak
