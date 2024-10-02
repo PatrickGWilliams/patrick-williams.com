@@ -55,15 +55,19 @@
     </div>
   </div>
   {% if fromDB %}
-    <div class="w3-card w3-dark-grey">
-      <h3>Rejected Words</h3>
-       <p>Words the New York Times Spelling Bee puzzle rejected because they are offensive or obscure</p> 
-       <p>&nbsp;</p>
-    </div>
-    <div class="w3-card w3-dark-grey">
-      {% for string in rejected %}
-        <li>{{ string }}</li>
-      {% endfor %}
+  <div class="w3-orange w3-container">
+      <div class="w3-center ">
+       <h1>Rejected Words</h1>
+      </div>
+      <div class="w3-card w3-dark-grey">
+         <p>Words the New York Times Spelling Bee puzzle rejected because they are offensive or obscure</p> 
+         <p>&nbsp;</p>
+      </div>
+      <div class="w3-card w3-dark-grey">
+        {% for string in rejected %}
+          <li>{{ string }}</li>
+        {% endfor %}
+      </div>
     </div>
   {% endif %}
   </body>

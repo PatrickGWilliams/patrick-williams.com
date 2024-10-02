@@ -108,14 +108,11 @@ def answer(letters):
         answer.append("No suitable words found.")
     elif len(answer) == 1:
         answerTitle = "Answer"
-    lengthLongest=len(rejected)
-    if len(answer)>lengthLongest:
-        lengthLongest = len(answer)
     
-    length = ((lengthLongest / 5) * 20) + 500
+    length = ((len(answer) / 5) * 20) + 200
     
-    if length < 1000:
-        length = 1000
+    if length < 500:
+        length = 500
 
     if len(pangrams) < 1:
         pangrams.append("No panagrams can be made with the provided letters.")
@@ -125,5 +122,5 @@ def answer(letters):
     
 
     return render_template(
-        "solver/answer.html", answer=answer, pangrams=pangrams, rejected=rejected, fromDB=fromDB, pangramTitle=pangramTitle, answerTitle=answerTitle, length=length
+        "solver/answer.html", answer=answer, pangrams=pangrams, rejected=rejected, fromDB=fromDB, pangramTitle=pangramTitle, answerTitle=answerTitle, length=length 
     )

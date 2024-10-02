@@ -1,2 +1,2 @@
 ansible_user: ansible
-patsite_image_name: patgwillia/pat_will_website:version1.3.2
+patsite_image_name: patgwillia/pat_will_website:version1.3.4
