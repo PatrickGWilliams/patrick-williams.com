@@ -31,5 +31,5 @@
     dest: /home/ansible/app_files/
     owner: ansible
     group: ansible
-    #    force: false
+    force: true
     mode: '0744'
