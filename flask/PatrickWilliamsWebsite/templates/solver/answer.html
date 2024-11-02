@@ -13,15 +13,15 @@
       </div>
       {% if fromDB %}
         <div class="w3-card w3-dark-grey">
-          <h3>Accepted Words</h3>
+           <p>&nbsp;</p>
            <p>Words accepted by the <a href="https://www.nytimes.com/puzzles/spelling-bee">New York Times Spelling Bee</a> puzzle</p> 
            <p>&nbsp;</p>
         </div>
       {% else %}
 
         <div class="w3-card w3-dark-grey">
-          <h3>Explanation</h3>
-           <p>All of the words containing three or more letters that can be made with the provided letters</p> 
+           <p>&nbsp;</p>
+           <p>Words containing three or more letters that can be made with the provided letters</p> 
            <p>&nbsp;</p>
         </div>
 
@@ -34,13 +34,13 @@
         </ul>
       </div>
     </div>
-    <div class="w3-half w3-yellow w3-container w3-center" style="height:{{ length }}px">
+    <div class="w3-half w3-amber w3-container w3-center" style="height:{{ length }}px">
        <div>
         <h1>{{pangramTitle}}</h1>
        </div>
       <div class="w3-card w3-dark-grey">
         <p>&nbsp;</p>
-        <p>Pangrams are words that contain all of the provided letters</p> 
+        <p>Words that contain all of the provided letters</p> 
         <p>&nbsp;</p>
       </div>
     
@@ -55,12 +55,13 @@
     </div>
   </div>
   {% if fromDB %}
-  <div class="w3-orange w3-container">
-      <div class="w3-center ">
-       <h1>Rejected Words</h1>
+    <div class="w3-yellow w3-container w3-center" >
+      <div>
+         <h1>Rejected Words</h1>
       </div>
       <div class="w3-card w3-dark-grey">
-         <p>Words the New York Times Spelling Bee puzzle rejected because they are offensive or obscure</p> 
+         <p>&nbsp;</p>
+         <p>Words the New York Times Spelling Bee puzzle has rejected as offensive or too obscure for inclusion</p> 
          <p>&nbsp;</p>
       </div>
       <div class="w3-card w3-dark-grey">
@@ -68,7 +69,8 @@
           <li>{{ string }}</li>
         {% endfor %}
       </div>
-    </div>
+      <div class="w3-padding-16"></div>
+      </div>
   {% endif %}
   </body>
 

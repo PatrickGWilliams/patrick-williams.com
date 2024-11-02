@@ -34,18 +34,6 @@
   </div>
   
   <div class="w3-row">
-    <div class="w3-half w3-pale-red w3-center" style="min-height:730px" id="certifications">
-      <div class="w3-padding-64">
-        <h1>Certifications</h1>
-      </div>
-          
-        <div class="w3-half w3-center" >
-          <div data-iframe-width="150" data-iframe-height="240" data-share-badge-id="1f7e1fad-e7ed-4ecf-aa2e-b745fbd448a9" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-
-        </div>
-
-          <div data-iframe-width="150" data-iframe-height="240" data-share-badge-id="9c8bcd12-37bf-4703-8e84-5afb26cadc92" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>    </div>
-        
       <div class="w3-half w3-indigo w3-container" style="min-height:730px" id="skills">
       <div class="w3-padding-16 w3-center">
         <h1>Skills</h1>
@@ -77,17 +65,32 @@
           </ul>
         </div>
       </div>
+
+    </div>
+
+    <div class="w3-half w3-light-green w3-center" style="min-height:730px" id="certifications">
+      <div class="w3-padding-64">
+        <h1>Certifications</h1>
+      </div>
+          
+        <div class="w3-half w3-center" >
+          <div data-iframe-width="150" data-iframe-height="240" data-share-badge-id="1f7e1fad-e7ed-4ecf-aa2e-b745fbd448a9" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+        </div>
+
+          <div data-iframe-width="150" data-iframe-height="240" data-share-badge-id="9c8bcd12-37bf-4703-8e84-5afb26cadc92" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>    
+
     </div>
   </div>
   
   <div class="w3-row" id="projects">
   
-    <div class="w3-half w3-purple w3-container w3-center" style="height:700px">
+    <div class="w3-half w3-amber w3-container w3-center" style="height:700px">
       <div class="w3-padding-64">
         <h1>Projects</h1>
       </div>
       <div class="w3-padding-4">
-        <a href="{{ url_for('solver.spellingbee') }}" class="w3-button w3-purple w3-block w3-hover-teal "><h3>Spelling Bee Solver</h3></a>
+        <a href="{{ url_for('solver.spellingbee') }}" class="w3-button w3-amber w3-block w3-hover-black "><h3>Spelling Bee Solver</h3></a>
         <ul>
           <li>A python script I wrote to solve the <a href="https://www.nytimes.com/puzzles/spelling-bee"> New York Times Spelling Bee</a> puzzle.</li>
 
@@ -97,7 +100,7 @@
       
           
           
-          <a href="https://github.com/PatrickGWilliams" class="w3-button w3-purple w3-block w3-hover-teal w3-padding-16"><h3>Git Hub</h3></a>
+          <a href="https://github.com/PatrickGWilliams" class="w3-button w3-amber w3-block w3-hover-black w3-padding-16"><h3>Git Hub</h3></a>
       </div>
       <ul>
         <li>My git hub containing the Ansible, Terraform, Docker, and Python I wrote for this website.</li>
@@ -105,24 +108,28 @@
   
       <br>
     </div>
-    <div class="w3-half w3-teal w3-container" style="height:700px" id="contact">
+    <div class="w3-half w3-black w3-container" style="height:700px" id="contact">
       <div class="w3-padding-64 w3-padding-large">
-        <h1>Contact</h1>
+        <div class="w3-center">
+          <h1>Contact</h1>
+        </div>
         <p class="w3-opacity">You can reach me at patgwillia@gmail.com, <a href="https://www.linkedin.com/in/patrick-williams-3650a6310">LinkedIn</a>, or by filling out the form below</p>
+
+        <div class="w3-padding-16"></div>
         <form class="w3-container w3-card w3-padding-32 w3-dark-grey" method="post">
           <div class="w3-section">
             <label>Name</label>
-            <input class="w3-input" style="width:100%;" type="text" required name="Name">
+            <input class="w3-input w3-grey" style="width:100%;" type="text" required name="Name">
           </div>
           <div class="w3-section">
             <label>Email</label>
-            <input class="w3-input" style="width:100%;" type="text" required name="Email">
+            <input class="w3-input w3-grey" style="width:100%;" type="text" required name="Email">
           </div>
           <div class="w3-section">
             <label>Message</label>
-            <input class="w3-input" style="width:100%;" type="text" required name="Message">
+            <input class="w3-input w3-grey" style="width:100%;" type="text" required name="Message">
           </div>
-          <button type="submit" class="w3-button w3-teal w3-right">Send</button>
+          <button type="submit" class="w3-button w3-black w3-right w3-hover-grey">Send</button>
         </form>
       </div>
     </div>
@@ -131,5 +138,5 @@
   
   </body>
 
-  <html>
+  </html>
 {% endblock %}
