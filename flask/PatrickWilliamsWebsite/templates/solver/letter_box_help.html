@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Letter Boxed Helper Answers</title>{% endblock %}
+
+{% block content %} 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body class="w3-content" style="max-width:1300px">
+    <div class="w3-red w3-container w3-center" >
+      <div>
+         <h1>Letter Boxed Helper Answers</h1>
+      </div>
+      <div class="w3-card w3-dark-grey">
+         <p>&nbsp;</p>
+         <p>These words are sorted by how many of the remaining letters they cover.</p> 
+         <p>&nbsp;</p>
+      </div>
+      <div class="w3-card w3-dark-grey">
+        {% for string in answerList%}
+          <li>{{ string.capitalize() }}</li>
+        {% endfor %}
+      </div>
+      <div class="w3-padding-16"></div>
+      </div>
+  </body>
+
+{% endblock %}
