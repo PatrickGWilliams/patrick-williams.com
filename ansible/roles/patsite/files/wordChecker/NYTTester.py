@@ -21,7 +21,7 @@ import checkDictionary
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
-    filename="/home/pat/projects/patrick-williams/seleniumTestingDir/NYTTester.log", level=logging.INFO
+    filename="/home/ansible/app_files/wordChecker/NYTTester.log", level=logging.INFO
 )
 
 
@@ -97,7 +97,7 @@ class State:
         self.rejectedWords = []
         self.sortedLetters = []
         self.attempts = 0
-        self.web = []
+        self.web: MyWebDriver
         self.initializeDriver()
 
     def checkWords(self):
@@ -108,6 +108,7 @@ class State:
 
             try:
                 self.web.clickLetters(self, word)
+                logger.info("At limit")
                 time.sleep(1)
             except noninteractable:
 
@@ -116,7 +117,6 @@ class State:
                 atLimit = True
 
             if atLimit:
-                logger.info("At limit")
                 self.closeDriver()
                 self.initializeDriver()
                 time.sleep(2)

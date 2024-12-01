@@ -54,24 +54,6 @@
       </div>
     </div>
   </div>
-  {% if fromDB %}
-    <div class="w3-yellow w3-container w3-center" >
-      <div>
-         <h1>Rejected Words</h1>
-      </div>
-      <div class="w3-card w3-dark-grey">
-         <p>&nbsp;</p>
-         <p>Words the New York Times Spelling Bee puzzle has rejected as offensive or too obscure for inclusion</p> 
-         <p>&nbsp;</p>
-      </div>
-      <div class="w3-card w3-dark-grey">
-        {% for string in rejected %}
-          <li>{{ string }}</li>
-        {% endfor %}
-      </div>
-      <div class="w3-padding-16"></div>
-      </div>
-  {% endif %}
   </body>
 
 {% endblock %}
