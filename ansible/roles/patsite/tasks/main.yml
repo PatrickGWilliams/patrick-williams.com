@@ -5,14 +5,23 @@
     name: ubuntu
     remove: true
 
-- name: Copy the contents of the shared_files directory
+- name: Copy the contents of the app_files directory
   ansible.builtin.copy:
-    src: files/shared_files
-    dest: /home/ansible/app_files/
+    src: files/app_files
+    dest: /home/ansible/
     owner: ansible
     group: ansible
-    force: false
+    force: true
     mode: "0744"
+
+- name: Ensure getNYTdata.py runs everyday at 3:05
+  ansible.builtin.cron:
+    name: "scrape New York Times"
+    minute: "05"
+    hour: "3"
+    job: "/bin/python3 /home/ansible/app_files/getNYTdata.py"
+    user: ansible
+    state: present
 
 - name: Gather info on running container
   docker_container_info:

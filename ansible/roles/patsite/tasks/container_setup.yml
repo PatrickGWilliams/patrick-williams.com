@@ -16,7 +16,7 @@
       - 8024:8041
     mounts:
       - source: "/home/ansible/app_files/shared_files"
-        target: "/app/shared"
+        target: "/usr/local/lib/python3.12/site-packages/PatrickWilliamsWebsite/app/shared"
         type: bind
         read_only: true
 

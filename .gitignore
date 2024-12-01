@@ -1,11 +1,12 @@
 #docker
 docker/var/**
 docker/shared_directory/**
+docker/*.whl
 
 #ansible
 ansible/roles/common/files/**
 ansible/roles/patsite/vars/**
-ansible/roles/patsite/files/shared_files/**
+ansible/roles/patsite/files/app_files/shared_files/**
 
 
 
