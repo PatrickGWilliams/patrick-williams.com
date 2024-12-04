@@ -1,6 +1,6 @@
 # Welcome to the repository for [patrick-williams.com](https://patrick-williams.com)!
 
-### This is the repository for my personal website showcasing my skills, certifications, and a sample script I wrote that solves the New York Times Spelling Bee. Below you'll find information about the project structure and how I set it up.
+### This is the repository for my personal website showcasing my skills, certifications, and sample python scripts. Below you'll find information about the project structure.
 ***
 ### The project is organized into several directories:
 
