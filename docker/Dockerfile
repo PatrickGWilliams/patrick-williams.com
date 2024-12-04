@@ -6,11 +6,9 @@ RUN mkdir -p /app/shared
 
 WORKDIR /app
 
-COPY patrickwilliamswebsite-1.3.5-py3-none-any.whl /app/
+COPY patrickwilliamswebsite-1.4.1-py3-none-any.whl /app/
 
-RUN pip install --no-cache-dir /app/patrickwilliamswebsite-1.3.5-py3-none-any.whl  
-
-RUN rm /app/patrickwilliamswebsite-1.3.5-py3-none-any.whl
+RUN pip install --no-cache-dir /app/patrickwilliamswebsite-1.4.1-py3-none-any.whl  && rm /app/patrickwilliamswebsite-1.4.1-py3-none-any.whl
 
 COPY ./var /usr/local/var
 
