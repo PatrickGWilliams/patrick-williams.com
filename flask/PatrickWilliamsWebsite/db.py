@@ -5,6 +5,7 @@ from flask import current_app, g
 
 
 def get_db():
+    print(current_app.config['DATABASE'])
     if 'db' not in g:
         g.db = sqlite3.connect(
             current_app.config['DATABASE'],

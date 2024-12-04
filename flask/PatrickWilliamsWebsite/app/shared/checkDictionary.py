@@ -1,8 +1,7 @@
 class dictionaryChecker:
-    def __init__(self, letters):
+    def __init__(self, letters, lines):
         self.pangrams = []
         self.answer = []
-        lines = self.getDict()
         requiredLetter = letters[0]
         for word in lines:
             word = word.rstrip().lower()
@@ -25,11 +24,3 @@ class dictionaryChecker:
             if pangram:
                 self.pangrams.append(word)
                 self.answer.remove(word)
-
-
-    def getDict(self):
-        with open("""/app/shared/words_alpha.txt""") as word_file:
-            lines = word_file.readlines()
-        return lines
-
-
