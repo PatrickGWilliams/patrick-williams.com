@@ -4,7 +4,7 @@
 ***
 ### The project is organized into several directories:
 
-1. [Flask Directory](/../../tree/main/flask/): Contains the Python code, Jinja templates, and CSS files I made to create the website. Additionally, it includes the Python code for my New York Times Letter Boxed puzzle helper ([Spelling Bee Solver](/../../blob/main/flask/PatrickWilliamsWebsite/app/lbHelper.py)).
+1. [Flask Directory](/../../tree/main/flask/): Contains the Python code, Jinja templates, and CSS files I made to create the website. Additionally, it includes the Python code for my New York Times Letter Boxed puzzle helper ([Letter Box Helper](/../../blob/main/flask/PatrickWilliamsWebsite/app/lbHelper.py)).
 
 2. [Docker Directory](/../../tree/main/docker/): Contains the Dockerfile I used to build an image of the website.
 
