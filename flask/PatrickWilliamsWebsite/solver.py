@@ -79,7 +79,7 @@ def sbAnswers(letters):
         return redirect(url_for("solver.spellingbee"))
     db = get_db()
     dbLetters = db.execute(
-        "SELECT accepted, pangrams" " FROM bees" " WHERE letters = ?", (json.dumps(list(letters)),)
+        "SELECT accepted, pangrams" " FROM bees" " WHERE letters = ?", (json.dumps(letters),)
     ).fetchone()
 
     if dbLetters is None:
