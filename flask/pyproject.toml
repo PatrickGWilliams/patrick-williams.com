@@ -1,6 +1,6 @@
 [project]
 name = "PatrickWilliamsWebsite"
-version = "1.4.2"
+version = "1.4.3"
 description = "A personal website for Patrick Williams"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -9,6 +9,8 @@ dependencies = [
     "flask-mailman",
     "email-validator",
     "waitress",
+    "flask-sqlalchemy",
+    "flask-migrate"
 ]
 [build-system]
 requires = ["flit_core >=3.2,<4"]
