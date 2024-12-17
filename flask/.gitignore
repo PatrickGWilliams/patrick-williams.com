@@ -1,4 +1,6 @@
 .venv/
+*.flaskenv
+PatrickWilliamsWebsite.py
 
 *.pyc
 __pycache__/
@@ -10,6 +12,7 @@ __pycache__/
 htmlcov/
 static/dict.txt
 static/profile.JPEG
+
 
 dist/
 build/
