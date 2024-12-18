@@ -1,6 +1,6 @@
 FROM python:3
 
-RUN pip install --no-cache-dir git+https://github.com/PatrickGWilliams/patrick-williams.com.git@alchemy#subdirectory=flask
+RUN mkdir /data && pip install --no-cache-dir git+https://github.com/PatrickGWilliams/patrick-williams.com.git@alchemy#subdirectory=flask
 
 COPY ./var /usr/local/var
 
