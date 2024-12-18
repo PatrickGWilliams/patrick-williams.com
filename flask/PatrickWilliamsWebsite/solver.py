@@ -1,4 +1,5 @@
 import json
+import sqlalchemy as sa
 import os
 from flask import (
     Blueprint,
@@ -12,9 +13,7 @@ from flask import (
 )
 from .models import Bees, Boxes
 from . import db
-from .app import lbHelper
-from .app.shared import checkDictionary
-import sqlalchemy as sa
+from .app import lbHelper, checkDictionary
 
 
 bp = Blueprint("solver", __name__, url_prefix="/solver")

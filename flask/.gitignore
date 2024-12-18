@@ -6,6 +6,7 @@ PatrickWilliamsWebsite.py
 __pycache__/
 
 **/instance/**
+**log.txt
 
 .pytest_cache/
 .coverage
