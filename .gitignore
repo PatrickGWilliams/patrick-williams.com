@@ -1,7 +1,5 @@
 #docker
-docker/var/**
 docker/shared_directory/**
-docker/**.whl
 
 #ansible
 ansible/roles/common/files/**

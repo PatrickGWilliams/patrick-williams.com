@@ -1,9 +1,15 @@
-FROM python:3
+FROM python:slim
 
-RUN mkdir /data && pip install --no-cache-dir git+https://github.com/PatrickGWilliams/patrick-williams.com.git@alchemy#subdirectory=flask
 
-COPY ./var /usr/local/var
+RUN mkdir -p /app/data && pip install --no-cache-dir git+https://github.com/PatrickGWilliams/patrick-williams.com.git@alchemy#subdirectory=flask --target /app
+
+COPY config.py words_alpha.txt /app/
+
+COPY ../flask/migrations/ /app
+
+COPY ./boot.sh ./
+RUN chmod a+x boot.sh
 
 EXPOSE 8041
 
-CMD [ "waitress-serve", "--port=8041", "--call", "PatrickWilliamsWebsite:create_app" ]
+ENTRYPOINT ["./boot.sh"]

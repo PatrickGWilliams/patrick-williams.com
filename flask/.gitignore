@@ -1,12 +1,11 @@
 .venv/
 *.flaskenv
-PatrickWilliamsWebsite.py
 
 *.pyc
 __pycache__/
 
-**/instance/**
-**log.txt
+instance/
+log.txt
 
 .pytest_cache/
 .coverage

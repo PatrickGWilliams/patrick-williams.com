@@ -28,7 +28,7 @@ def getTodaysLetters():
 
 
 def getDict():
-    file_path = os.path.join(current_app.root_path, "app/shared", "words_alpha.txt")
+    file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     with open(file_path) as word_file:
         lines = word_file.readlines()
     return lines
