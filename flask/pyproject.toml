@@ -1,6 +1,6 @@
 [project]
 name = "PatrickWilliamsWebsite"
-version = "1.5
+version = "1.5"
 description = "A personal website for Patrick Williams"
 readme = "README.md"
 requires-python = ">=3.8"
