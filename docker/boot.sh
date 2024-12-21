@@ -1,4 +1,4 @@
 #!/bin/bash
-flask db migrate
-flask db upgrade
-exec waitress-serve --port=8041 --call PatrickWilliamsWebsite:create_app
+python3 -m flask --app PatrickWilliamsWebsite db migrate
+python3 -m flask --app PatrickWilliamsWebsite db upgrade
+exec python3 -m waitress --port=8041 --call PatrickWilliamsWebsite:create_app

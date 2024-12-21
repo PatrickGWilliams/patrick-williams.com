@@ -1,5 +1,8 @@
 #docker
 docker/shared_directory/**
+docker/*
+!docker/Dockerfile
+!docker/README.md
 
 #ansible
 ansible/roles/common/files/**
