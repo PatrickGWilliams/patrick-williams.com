@@ -5,6 +5,7 @@
 __pycache__/
 
 instance/
+data/
 log.txt
 
 .pytest_cache/

@@ -1,4 +1,6 @@
 import os
+import logging
+from logging.handlers import RotatingFileHandler
 from flask_mailman import Mail
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import Flask
@@ -19,11 +21,6 @@ def create_app():
     migrate.init_app(app, db)
     mail.init_app(app)
 
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
-
     from . import solver
 
     app.register_blueprint(solver.bp)
@@ -33,6 +30,19 @@ def create_app():
     app.register_blueprint(index.bp)
     app.add_url_rule("/", endpoint="index")
 
+    baseDir = os.path.abspath(os.path.dirname(__file__))
+
+    file_handler = RotatingFileHandler(os.path.join(baseDir,'../data/personalWebsite.log'),
+                                           maxBytes=10240, backupCount=10)
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s %(levelname)s: %(message)s '
+        '[in %(pathname)s:%(lineno)d]'))
+    file_handler.setLevel(logging.INFO)
+    app.logger.addHandler(file_handler)
+
+    app.logger.setLevel(logging.INFO)
+    app.logger.info('Website startup')
+
     return app
 
-from . import models
+#from . import models

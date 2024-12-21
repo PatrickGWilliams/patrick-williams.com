@@ -34,8 +34,8 @@ def index():
             except BadHeaderError:
                 error="Please enter only one valid email adress"
 
-        else:
-            flash(error)
+
+        flash(error)
 
         
     return render_template("index.html")
