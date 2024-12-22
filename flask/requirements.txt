@@ -1,0 +1,6 @@
+Flask
+flask-mailman
+email-validator
+waitress
+flask-sqlalchemy
+flask-migrate

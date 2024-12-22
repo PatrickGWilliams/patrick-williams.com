@@ -18,7 +18,8 @@
       - source: "/home/ansible/app_files/shared_files"
         target: "/usr/local/lib/python3.12/site-packages/PatrickWilliamsWebsite/app/shared"
         type: bind
-        read_only: true
+        read_only: false
+    env: "{{ env_vars }}"
 
 - name: Log out of DockerHub
   community.docker.docker_login:

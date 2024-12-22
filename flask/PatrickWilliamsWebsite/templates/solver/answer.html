@@ -46,11 +46,15 @@
     
       <div class="w3-card w3-dark-grey">
     
-        <ul>
-          {% for pangram in pangrams %}
-            <li>{{ pangram }}</li>
-          {% endfor %}
-        </ul>
+        {% if pangrams %}
+          <ul>
+            {% for pangram in pangrams %}
+              <li>{{ pangram }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No pangrams found</p>
+        {% endif %}
       </div>
     </div>
   </div>

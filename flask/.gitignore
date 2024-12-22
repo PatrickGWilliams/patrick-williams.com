@@ -5,13 +5,13 @@
 __pycache__/
 
 instance/
-data/
-log.txt
+words_alpha.txt
+shared_dir/
+dockerRun*
 
 .pytest_cache/
 .coverage
 htmlcov/
-static/dict.txt
 static/profile.JPEG
 
 
