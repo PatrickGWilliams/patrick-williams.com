@@ -1,6 +1,6 @@
 # Ansible configuration for [patrick-williams.com](https://patrick-williams.com).
 
-This directory uses Ansible to initialize and configure the server to run my website. It also includes a Python script that runs daily, using Selenium to check which words the New York Times Spelling Bee puzzle will accept for that day. It is located [here](/../../blob/main/ansible/roles/patsite/files/wordChecker/NYTTester.py). First I put the domain name (patrick-williams.com) in the inventory file in the 
+This directory uses Ansible to initialize and configure the server to run my website. First I put the domain name (patrick-williams.com) in the inventory file in the 
 initialize group. I then run:
 ```bash
 ansible-playbook --private-key /path/to/private/key initailize.yml
@@ -28,19 +28,13 @@ Next, The Nginx role:
 2. Creates a directory to store Nginx logs
 3. Ensures Nginx is running 
 
-The last dependency is the NYTTester_setup role:
-
-1. Installs Python and Pip
-2. Uses pip to install Selenium
-3. Sets up a cron job to run the NYTTester.py every day at 3:05 a.m. just after the New York Times has updated the spelling bee puzzle for that day
-4. Copies the NYTTester.py script to the server
-
 Finally, the patsite role is ran. This role: 
 
 1. Removes the aws created ubuntu user
-2. Copies the SQLite database file and the word list file over to EC2 if they do not already exist there.
-3. Checks if docker is running the current version of the website image and if not runs the container_setup.yml playbook
-4. Ensures Nginx is running. 
+2. Ensures the scraper script runs every day at 3:05.
+3. Copies the SQLite database file over to EC2 if it does not already exist there.
+4. Checks if docker is running the current version of the website image and if not runs the container_setup.yml playbook
+5. Ensures Nginx is running. 
 
 If the container_setup.yml playbook is ran it:
 

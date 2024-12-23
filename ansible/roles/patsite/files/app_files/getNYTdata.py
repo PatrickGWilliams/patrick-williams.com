@@ -1,5 +1,4 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+import urllib.request
 import json
 import re
 import sqlite3
@@ -7,66 +6,59 @@ import sqlite3
 
 
 def getGameData() -> None:
-    chrome_options = Options()
-    chrome_options.add_argument("--disable-extensions")
-    chrome_options.add_argument("--headless=new")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.set_page_load_timeout(120)
-    driver.set_script_timeout(120)
 
     db = sqlite3.connect(
-        "/home/ansible/app_files/shared/solvers.sqlite",
+        "/home/ansible/app_files/shared_dir/app.db",
         detect_types=sqlite3.PARSE_DECLTYPES,
     )
 
-    driver.get("https://www.nytimes.com/puzzles/spelling-bee")
+    page = urllib.request.urlopen("https://www.nytimes.com/puzzles/spelling-bee")
+
     beeRegEx: re.Match[str] | None = re.search(
-        r"window\.gameData\s*=\s*\{\"today\":(\{.*?\})", driver.page_source
+        r"window\.gameData\s*=\s*\{\"today\":(\{.*?\})", str(page.read())
     )
 
     if beeRegEx:
         beeJson = json.loads(beeRegEx.group(1))
         for word in beeJson["pangrams"]:
             beeJson["answers"].remove(word)
+        letters = ''.join(beeJson["validLetters"])
 
         db.execute(
-            "INSERT INTO bees (print_date, letters, accepted, pangrams)"
-            " VALUES (?, ?, ?, ?)",
+            "INSERT INTO bees (letters, accepted, pangrams)"
+            " VALUES (?, ?, ?)",
             (
-                json.dumps(beeJson["printDate"]),
-                json.dumps(beeJson["validLetters"]),
+                letters,
                 json.dumps(beeJson["answers"]),
                 json.dumps(beeJson["pangrams"])
             ),
         )
+
         db.commit()
 
-    driver.get("https://www.nytimes.com/puzzles/letter-boxed")
+    page = urllib.request.urlopen("https://www.nytimes.com/puzzles/letter-boxed")
+
     letterBoxRegEx: re.Match[str] | None = re.search(
-        r"window\.gameData\s*=\s*(\{.*?\})", driver.page_source
+        r"window\.gameData\s*=\s*(\{.*?\})", str(page.read())
     )
+
     if letterBoxRegEx:
         boxJson = json.loads(letterBoxRegEx.group(1))
         solutions = findSolutions(
             boxJson["dictionary"], makeSideString(boxJson["sides"])
         )
         db.execute(
-           "INSERT INTO boxes (print_date, sides, one_word, two_word, dictionary)"
-           " VALUES (?, ?, ?, ?, ?)",
+           "INSERT INTO boxes (sides, one_word, two_word, dictionary)"
+           " VALUES (?, ?, ?, ?)",
            (
-               json.dumps(boxJson["printDate"]),
                json.dumps(boxJson["sides"]),
                json.dumps(solutions["oneWord"]),
                json.dumps(solutions["twoWord"]),
                json.dumps(boxJson["dictionary"])
            ),
         )
-        db.commit()
 
-    driver.quit()
+        db.commit()
 
     db.close()
 
