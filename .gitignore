@@ -1,7 +1,7 @@
 #ansible
 ansible/roles/common/files/**
 ansible/roles/patsite/vars/**
-ansible/roles/patsite/files/app_files/shared_files/**
+ansible/roles/patsite/files/app_files/shared_dir/
 
-
-
+#docker
+docker/dockerRun*

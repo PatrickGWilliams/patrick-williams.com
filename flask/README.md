@@ -1,5 +1,11 @@
-# Flask code for [patrick-williams.com](https://patrick-williams.com).
+# Flask Code for [patrick-williams.com](https://patrick-williams.com)
 
-This directory contains the Flask code I wrote for my website. It ueses Python and Jinja templates to configure the website, and waitress to serve it. In order to not expose root, I put all of this inside a docker container and behind an nginx load balancer. 
+The `flask` directory contains the core Flask application code and supporting files for my website. It uses Python and Jinja templates to build and serve dynamic content, with `waitress` as the WSGI server.
 
-The New York Times Letter Boxed helper is [Letter Box Helper](/../../blob/main/flask/PatrickWilliamsWebsite/app/lbHelper.py).
+### Key Components:
+- **Flask Application Code**: Located in the `PatrickWilliamsWebsite` directory, it includes the views, templates, and utilities such as the New York Times Letter Boxed helper ([`lbHelper.py`](../../blob/main/flask/PatrickWilliamsWebsite/app/lbHelper.py)).  
+- **SQLAlchemy/Alembic Migrations**: The `migrations` directory contains database migration scripts for SQLAlchemy.  
+- **Configuration**: A configuration file defines settings for the Flask app.  
+
+### Deployment:
+The application runs inside a Docker container to isolate it from the host environment. It is served behind an Nginx load balancer for added security and scalability. 
