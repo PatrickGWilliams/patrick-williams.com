@@ -1,6 +1,6 @@
-Flask
-flask-mailman
-email-validator
-waitress
-flask-sqlalchemy
-flask-migrate
+Flask == 3.1.0
+flask-mailman == 1.1.1
+email-validator == 2.2.0
+waitress == 3.0.2 
+flask-sqlalchemy == 3.1.1
+flask-migrate == 4.0.7 

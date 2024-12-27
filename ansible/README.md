@@ -3,7 +3,7 @@
 The `ansible` directory uses Ansible to initialize and configure the server to run my website.
 
 ## Initialization
-1. I add the domain name (`patrick-williams.com`) to the inventory file under the `initialize` group
+1. I add the domain name `patrick-williams.com` to the inventory file under the `initialize` group
 2. I then run the following command to initialize the server:
 ```bash
 ansible-playbook --private-key /path/to/private/key initialize.yml
