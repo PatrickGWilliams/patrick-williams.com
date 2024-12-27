@@ -15,8 +15,8 @@
     published_ports:
       - 8024:8041
     mounts:
-      - source: "/home/ansible/app_files/shared_files"
-        target: "/usr/local/lib/python3.12/site-packages/PatrickWilliamsWebsite/app/shared"
+      - source: "/home/ansible/app_files/shared_dir"
+        target: "/app/data"
         type: bind
         read_only: false
     env: "{{ env_vars }}"
